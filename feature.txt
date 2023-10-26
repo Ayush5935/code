@@ -1,0 +1,662 @@
+features : 
+
+services.feature
+
+Feature: Placing the cursor/click on Services
+
+  Scenario: User clicks on Services in the navigation bar
+    Given User is on the XenonStack website
+    When User clicks on Services in the navigation bar
+    Then User should see the Services page
+
+
+-------------------------------------------------------------------------------
+
+accelerators.feature
+
+Feature: Placing the cursor/click on Accelerators
+
+  Scenario: User clicks on Accelerators in the navigation bar
+    Given User is on the XenonStack website
+    When User clicks on Accelerators in the navigation bar
+    Then User should see the Accelerators page
+
+
+----------------------------------------------------------------------------
+
+industries.feature
+
+Feature: Placing the cursor/click on Industries
+
+  Scenario: User clicks on Industries in the navigation bar
+    Given User is on the XenonStack website
+    When User clicks on Industries in the navigation bar
+    Then User should see the Industries page
+
+
+---------------------------------------------------------------------------
+
+resources.feature
+
+
+Feature: Placing the cursor/click on Resources
+
+  Scenario: User clicks on Resources in the navigation bar
+    Given User is on the XenonStack website
+    When User clicks on Resources in the navigation bar
+    Then User should see the Resources page
+
+--------------------------------------------------------------------------
+
+company.feature
+
+Feature: Placing the cursor/click on Company
+
+  Scenario: User clicks on Company in the navigation bar
+    Given User is on the XenonStack website
+    When User clicks on Company in the navigation bar
+    Then User should see the Company page
+
+
+---------------------------------------------------------------------------
+
+
+contact_us.feature
+
+
+Feature: Contact Us View
+
+  Scenario: Validate the Contact Us page
+    Given User is on the home page
+    When User navigates to the Contact Us page
+    Then User should be on the Contact Us page
+    When User navigates back to the home page
+    Then User should be on the home page
+
+
+------------------------------------------------------------------------
+
+
+transform_now.feature
+
+
+Feature: Clicking on "Transform Now" button
+
+  Scenario: User clicks on "Transform Now" button
+    Given User is on the XenonStack website
+    When User clicks on the "Transform Now" button
+    Then User should be on the "Transform Now" page
+    When User navigates back to the home page
+    Then User should be on the home page
+
+----------------------------------------------------------------
+
+
+take_first_step.feature
+
+Feature: Clicking on "Take the First Step" button
+
+  Scenario: User clicks on "Take the First Step" button
+    Given User is on the XenonStack website
+    When User clicks on the "Take the First Step" button
+    Then User should be on the "Take the First Step" page
+    When User navigates back to the home page
+    Then User should be on the home page
+
+-----------------------------------------------------------------
+
+home_more.feature
+
+Feature: Home Page Buttons
+
+  Scenario: Click on Home Page Buttons
+    Given User is on the home page
+    When User clicks on the Strategy button
+    Then User should perform the expected action for the Strategy button
+    When User clicks on the Services button
+    Then User should perform the expected action for the Services button
+    When User clicks on the Accelerators button
+    Then User should perform the expected action for the Accelerators button
+    When User clicks on the DataOps button
+    Then User should perform the expected action for the DataOps button
+    When User clicks on the Hybrid Cloud button
+    Then User should perform the expected action for the Hybrid Cloud button
+    When User clicks on the Managed Services button
+    Then User should perform the expected action for the Managed Services button
+
+
+-------------------------------------------------------------------
+
+use_cases.feature
+
+Feature: Exploring Use Cases
+
+  Scenario: User clicks on "Explore More" for Use Cases
+    Given User is on the XenonStack website
+    When User clicks on "Explore More" for Use Cases
+    Then User should be on the "Use Cases" page
+    When User navigates back to the home page
+    Then User should be on the home page
+
+--------------------------------------------------------------
+
+
+pages : 
+
+HomePage.java
+
+
+
+package pages;
+
+import org.openqa.selenium.By;
+
+import static utility.BrowserDriver.driver;
+
+public class HomePage {
+
+    public static String services_link_xpath = "//*[@id=\"what-we-do\"]/span";
+    public static String accelerators_link_xpath = "//*[@id=\"solutions\"]/span";
+    public static String industries_link_xpath = "//*[@id=\"industries\"]/span";
+    public static String resources_link_xpath = "//*[@id=\"resources\"]/span";
+    public static String company_link_xpath = "//*[@id=\"company\"]/span";
+    public static String contact_us_button_xpath = "//[@id=\"xs-header\"]/div/nav/div/ul[2]/li[1]/button";
+    public static String transform_now_button_xpath = "//*[@id=\"hs_cos_wrapper_banner-first-slider-button\"]/a";
+    public static String take_first_step_button_xpath = "/html/body/div[2]/section[2]/div/div/div[2]/div/button";
+
+    public static void click_services_link() {
+        driver.findElement(By.xpath(services_link_xpath)).click();
+    }
+
+    public static void click_accelerators_link() {
+        driver.findElement(By.xpath(accelerators_link_xpath)).click();
+    }
+
+    public static void click_industries_link() {
+        driver.findElement(By.xpath(industries_link_xpath)).click();
+    }
+
+    public static void click_resources_link() {
+        driver.findElement(By.xpath(resources_link_xpath)).click();
+    }
+
+    public static void click_company_link() {
+        driver.findElement(By.xpath(company_link_xpath)).click();
+    }
+
+    public static void click_contact_us_button() {
+        driver.findElement(By.xpath(contact_us_button_xpath)).click();
+    }
+
+    public static void click_transform_now_button() {
+        driver.findElement(By.xpath(transform_now_button_xpath)).click();
+    }
+
+    public static void click_take_first_step_button() {
+        driver.findElement(By.xpath(take_first_step_button_xpath)).click();
+    }
+}
+
+
+---------------------------------------------------------------------------------------------
+ContactUsPage.java
+
+
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import utility.BrowserDriver;
+
+public class ContactUsPage extends BrowserDriver {
+
+    public static String first_name_input_name = "first-name";
+    public static String last_name_input_name = "last-name";
+    public static String email_input_name = "email";
+    public static String company_name_input_name = "company";
+    public static String phone_number_input_name = "phone-number";
+    public static String job_function_dropdown_name = "job-function";
+    public static String country_dropdown_name = "country";
+    public static String industry_dropdown_name = "industry";
+    public static String next_button_xpath = "//*[@id=\"next-1\"]";
+
+    public static String stage_dropdown_name = "stage";
+    public static String cloud_services_dropdown_name = "cloud-services";
+    public static String cloud_data_platform_dropdown_name = "cloud-data-platform";
+    public static String data_visualization_tool_dropdown_name = "data-visualization-tool";
+    public static String business_use_case_dropdown_name = "business-use-case";
+    public static String comments_textarea_name = "comments";
+    public static String subscribe_checkbox_name = "subscribe";
+    public static String submit_button_xpath = "//*[@id=\"step-2\"]/div[9]/input";
+
+    public static void enter_first_name(String firstName) {
+        driver.findElement(By.name(first_name_input_name)).sendKeys(firstName);
+    }
+
+    public static void enter_last_name(String lastName) {
+        driver.findElement(By.name(last_name_input_name)).sendKeys(lastName);
+    }
+
+    public static void enter_email(String email) {
+        driver.findElement(By.name(email_input_name)).sendKeys(email);
+    }
+
+    public static void enter_company_name(String company) {
+        driver.findElement(By.name(company_name_input_name)).sendKeys(company);
+    }
+
+    public static void enter_phone_number(String phone) {
+        driver.findElement(By.name(phone_number_input_name)).sendKeys(phone);
+    }
+
+    public static void select_job_function(String jobFunction) {
+        Select jobFunctionDropdown = new Select(driver.findElement(By.name(job_function_dropdown_name));
+        jobFunctionDropdown.selectByVisibleText(jobFunction);
+    }
+
+    public static void select_country(String country) {
+        Select countryDropdown = new Select(driver.findElement(By.name(country_dropdown_name));
+        countryDropdown.selectByVisibleText(country);
+    }
+
+    public static void select_industry(String industry) {
+        Select industryDropdown = new Select(driver.findElement(By.name(industry_dropdown_name));
+        industryDropdown.selectByVisibleText(industry);
+    }
+
+    public static void click_next_button() {
+        driver.findElement(By.xpath(next_button_xpath)).click();
+    }
+
+    public static void select_stage(String stage) {
+        Select stageDropdown = new Select(driver.findElement(By.name(stage_dropdown_name));
+        stageDropdown.selectByVisibleText(stage);
+    }
+
+    public static void select_cloud_services(String cloudServices) {
+        Select cloudServicesDropdown = new Select(driver.findElement(By.name(cloud_services_dropdown_name));
+        cloudServicesDropdown.selectByVisibleText(cloudServices);
+    }
+
+    public static void select_cloud_data_platform(String cloudDataPlatform) {
+        Select cloudDataPlatformDropdown = new Select(driver.findElement(By.name(cloud_data_platform_dropdown_name));
+        cloudDataPlatformDropdown.selectByVisibleText(cloudDataPlatform);
+    }
+
+    public static void select_data_visualization_tool(String visualizationTool) {
+        Select visualizationToolDropdown = new Select(driver.findElement(By.name(data_visualization_tool_dropdown_name));
+        visualizationToolDropdown.selectByVisibleText(visualizationTool);
+    }
+
+    public static void select_business_use_case(String useCase) {
+        Select useCaseDropdown = new Select(driver.findElement(By.name(business_use_case_dropdown_name));
+        useCaseDropdown.selectByVisibleText(useCase);
+    }
+
+    public static void enter_comments(String comments) {
+        driver.findElement(By.name(comments_textarea_name)).sendKeys(comments);
+    }
+
+    public static void check_subscribe() {
+        WebElement subscribeCheckbox = driver.findElement(By.name(subscribe_checkbox_name));
+        if (!subscribeCheckbox.isSelected()) {
+            subscribeCheckbox.click();
+        }
+    }
+
+    public static void click_submit_button() {
+        driver.findElement(By.xpath(submit_button_xpath)).click();
+    }
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+stepDefinitation
+
+
+ServicesStepDefinitions.java
+
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import pages.HomePage;
+
+public class ServicesStepDefinitions {
+
+    @Given("User is on the XenonStack website")
+    public void user_is_on_the_xenonstack_website() {
+        // You can add code to navigate to the website if not already on it.
+    }
+
+    @When("User clicks on Services in the navigation bar")
+    public void user_clicks_on_services_in_the_navigation_bar() {
+        HomePage.click_services_link();
+    }
+
+    @Then("User should see the Services page")
+    public void user_should_see_the_services_page() {
+        // You can add assertions or validation for the Services page as needed.
+    }
+}
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+AcceleratorsStepDefinitions.java
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import pages.HomePage;
+
+public class AcceleratorsStepDefinitions {
+
+    @Given("User is on the XenonStack website")
+    public void user_is_on_the_xenonstack_website() {
+        // You can add code to navigate to the website if not already on it.
+    }
+
+    @When("User clicks on Accelerators in the navigation bar")
+    public void user_clicks_on_accelerators_in_the_navigation_bar() {
+        HomePage.click_accelerators_link();
+    }
+
+    @Then("User should see the Accelerators page")
+    public void user_should_see_the_accelerators_page() {
+        // You can add assertions or validation for the Accelerators page as needed.
+    }
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+IndustriesStepDefinitions.java
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import pages.HomePage;
+
+public class IndustriesStepDefinitions {
+
+    @Given("User is on the XenonStack website")
+    public void user_is_on_the_xenonstack_website() {
+        // You can add code to navigate to the website if not already on it.
+    }
+
+    @When("User clicks on Industries in the navigation bar")
+    public void user_clicks_on_industries_in_the_navigation_bar() {
+        HomePage.click_industries_link();
+    }
+
+    @Then("User should see the Industries page")
+    public void user_should_see_the_industries_page() {
+        // You can add assertions or validation for the Industries page as needed.
+    }
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+ ResourcesStepDefinitions.java
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import pages.HomePage;
+
+public class ResourcesStepDefinitions {
+
+    @Given("User is on the XenonStack website")
+    public void user_is_on_the_xenonstack_website() {
+        // You can add code to navigate to the website if not already on it.
+    }
+
+    @When("User clicks on Resources in the navigation bar")
+    public void user_clicks_on_resources_in_the_navigation_bar() {
+        HomePage.click_resources_link();
+    }
+
+    @Then("User should see the Resources page")
+    public void user_should_see_the_resources_page() {
+        // You can add assertions or validation for the Resources page as needed.
+    }
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+CompanyStepDefinitions.java
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import pages.HomePage;
+
+public class CompanyStepDefinitions {
+
+    @Given("User is on the XenonStack website")
+    public void user_is_on_the_xenonstack_website() {
+        // You can add code to navigate to the website if not already on it.
+    }
+
+    @When("User clicks on Company in the navigation bar")
+    public void user_clicks_on_company_in_the_navigation_bar() {
+        HomePage.click_company_link();
+    }
+
+    @Then("User should see the Company page")
+    public void user_should_see_the_company_page() {
+        // You can add assertions or validation for the Company page as needed.
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+ContactUsStepDefinitions.java
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import pages.ContactUsPage;
+import pages.HomePage;
+import org.openqa.selenium.WebDriver;
+
+public class ContactUsStepDefinitions {
+
+    private WebDriver driver; // You should have a WebDriver instance properly initialized.
+
+    @Given("User is on the home page")
+    public void user_is_on_the_home_page() {
+        // You can add code to navigate to the home page if not already on it.
+    }
+
+    @When("User navigates to the Contact Us page")
+    public void user_navigates_to_the_contact_us_page() {
+        HomePage.click_contact_us_button();
+    }
+
+    @Then("User should be on the Contact Us page")
+    public void user_should_be_on_the_contact_us_page() {
+        // Add assertions or validation for the Contact Us page as needed.
+    }
+
+    @When("User navigates back to the home page")
+    public void user_navigates_back_to_the_home_page() {
+        // Use Selenium to navigate the browser back
+        driver.navigate().back();
+    }
+
+    @Then("User should be on the home page")
+    public void user_should_be_on_the_home_page() {
+        // Add assertions or validation for the home page after navigating back.
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+TransformNowStepDefinitions.java
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import pages.ContactUsPage;
+import pages.HomePage;
+
+public class TransformNowStepDefinitions {
+
+    @Given("User is on the XenonStack website")
+    public void user_is_on_the_xenonstack_website() {
+        // You can navigate to the website here if not already on it.
+    }
+
+    @When("User clicks on the \"Transform Now\" button")
+    public void user_clicks_on_the_transform_now_button() {
+        HomePage.click_transform_now_button();
+    }
+
+    @Then("User should be on the \"Transform Now\" page")
+    public void user_should_be_on_the_transform_now_page() {
+        // Add assertions or validation for the "Transform Now" page as needed.
+    }
+
+    @When("User navigates back to the home page")
+    public void user_navigates_back_to_the_home_page() {
+        // You can add code to navigate back to the home page from the "Transform Now" page.
+    }
+
+    @Then("User should be on the home page")
+    public void user_should_be_on_the_home_page() {
+        // Add assertions or validation for the home page after navigating back.
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+TakeFirstStepStepDefinitions.java 
+
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import pages.HomePage;
+
+public class TakeFirstStepStepDefinitions {
+
+    private WebDriver driver; // You should have a WebDriver instance properly initialized.
+
+    @Given("User is on the XenonStack website")
+    public void user_is_on_the_xenonstack_website() {
+        // You can navigate to the website here if not already on it.
+    }
+
+    @When("User clicks on the \"Take the First Step\" button")
+    public void user_clicks_on_the_take_the_first_step_button() {
+        HomePage.click_take_first_step_button();
+    }
+
+    @Then("User should be on the \"Take the First Step\" page")
+    public void user_should_be_on_the_take_the_first_step_page() {
+        // Add assertions or validation for the "Take the First Step" page as needed.
+    }
+
+    @When("User navigates back to the home page")
+    public void user_navigates_back_to_the_home_page() {
+        // Use Selenium to navigate the browser back
+        driver.navigate().back();
+    }
+
+    @Then("User should be on the home page")
+    public void user_should_be_on_the_home_page() {
+        // Add assertions or validation for the home page after navigating back.
+    }
+}
+
+------------------------------------------------------------------------------------------------
+
+ TransformNowStepDefinitions
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import pages.ContactUsPage;
+import pages.HomePage;
+import org.openqa.selenium.WebDriver;
+
+public class TransformNowStepDefinitions {
+
+    private WebDriver driver; // You should have a WebDriver instance properly initialized.
+
+    @Given("User is on the XenonStack website")
+    public void user_is_on_the_xenonstack_website() {
+        // You can navigate to the website here if not already on it.
+    }
+
+    @When("User clicks on the \"Transform Now\" button")
+    public void user_clicks_on_the_transform_now_button() {
+        HomePage.click_transform_now_button();
+    }
+
+    @Then("User should be on the \"Transform Now\" page") {
+        // Add assertions or validation for the "Transform Now" page as needed.
+    }
+
+    @When("User navigates back to the home page") {
+        // Use Selenium to navigate the browser back
+        driver.navigate().back();
+    }
+
+    @Then("User should be on the home page") {
+        // Add assertions or validation for the home page after navigating back.
+    }
+}
+
+
+-------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
