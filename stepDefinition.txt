@@ -1,0 +1,548 @@
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
+
+public class ServicesStepDefinitions {
+
+    private WebDriver driver;
+
+    @Given("User is on the XenonStack website")
+    public void user_is_on_the_xenonstack_website() {
+        // Set up the ChromeDriver and navigate to the home page
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.xenonstack.com/");
+    }
+
+    @When("User clicks on Services in the navigation bar") {
+        HomePage.click_services_link();
+    }
+
+    @Then("User should see the Services page") {
+        // Add assertions or validation for the Services page as needed.
+        String expectedPageTitle = "Services - XenonStack"; // Replace with the expected title.
+        String actualPageTitle = driver.getTitle();
+
+        assertEquals("Page title doesn't match", expectedPageTitle, actualPageTitle);
+
+        // You can also check for specific elements on the Services page using Selenium locators.
+        // For example:
+        // assertTrue(driver.findElement(By.id("servicesContent")).isDisplayed());
+
+        // Add more assertions or validation as needed for your specific application.
+    }
+}
+
+
+
+------------------------------------------------------------------------------------------------------
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
+
+public class AcceleratorsStepDefinitions {
+
+    private WebDriver driver;
+
+    @Given("User is on the XenonStack website")
+    public void user_is_on_the_xenonstack_website() {
+        // Set up the ChromeDriver and navigate to the home page
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.xenonstack.com/");
+    }
+
+    @When("User clicks on Accelerators in the navigation bar") {
+        HomePage.click_accelerators_link();
+    }
+
+    @Then("User should see the Accelerators page") {
+        // Add assertions or validation for the Accelerators page as needed.
+        String expectedPageTitle = "Accelerators - XenonStack"; // Replace with the expected title.
+        String actualPageTitle = driver.getTitle();
+
+        assertEquals("Page title doesn't match", expectedPageTitle, actualPageTitle);
+
+        // You can also check for specific elements on the Accelerators page using Selenium locators.
+        // For example:
+        // assertTrue(driver.findElement(By.id("acceleratorsContent")).isDisplayed());
+
+        // Add more assertions or validation as needed for your specific application.
+    }
+}
+
+
+--------------------------------------------------------------------------------------------------
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
+
+public class IndustriesStepDefinitions {
+
+    private WebDriver driver;
+
+    @Given("User is on the XenonStack website") {
+        // Set up the ChromeDriver and navigate to the home page
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.xenonstack.com/");
+    }
+
+    @When("User clicks on Industries in the navigation bar") {
+        HomePage.click_industries_link();
+    }
+
+    @Then("User should see the Industries page") {
+        // Add assertions or validation for the Industries page as needed.
+        String expectedPageTitle = "Industries - XenonStack"; // Replace with the expected title.
+        String actualPageTitle = driver.getTitle();
+
+        assertEquals("Page title doesn't match", expectedPageTitle, actualPageTitle);
+
+        // You can also check for specific elements on the Industries page using Selenium locators.
+        // For example:
+        // assertTrue(driver.findElement(By.id("industriesContent")).isDisplayed());
+
+        // Add more assertions or validation as needed for your specific application.
+    }
+}
+
+
+
+---------------------------------------------------------------------------------
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
+
+public class ResourcesStepDefinitions {
+
+    private WebDriver driver;
+
+    @Given("User is on the XenonStack website") {
+        // Set up the ChromeDriver and navigate to the home page
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.xenonstack.com/");
+    }
+
+    @When("User clicks on Resources in the navigation bar") {
+        HomePage.click_resources_link();
+    }
+
+    @Then("User should see the Resources page") {
+        // Add assertions or validation for the Resources page as needed.
+        String expectedPageTitle = "Resources - XenonStack"; // Replace with the expected title.
+        String actualPageTitle = driver.getTitle();
+
+        assertEquals("Page title doesn't match", expectedPageTitle, actualPageTitle);
+
+        // You can also check for specific elements on the Resources page using Selenium locators.
+        // For example:
+        // assertTrue(driver.findElement(By.id("resourcesContent")).isDisplayed());
+
+        // Add more assertions or validation as needed for your specific application.
+    }
+}
+
+
+---------------------------------------------------------------------------------------------
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
+
+public class CompanyStepDefinitions {
+
+    private WebDriver driver;
+
+    @Given("User is on the XenonStack website") {
+        // Set up the ChromeDriver and navigate to the home page
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.xenonstack.com/");
+    }
+
+    @When("User clicks on Company in the navigation bar") {
+        HomePage.click_company_link();
+    }
+
+    @Then("User should see the Company page") {
+        // Add assertions or validation for the Company page as needed.
+        String expectedPageTitle = "Company - XenonStack"; // Replace with the expected title.
+        String actualPageTitle = driver.getTitle();
+
+        assertEquals("Page title doesn't match", expectedPageTitle, actualPageTitle);
+
+        // You can also check for specific elements on the Company page using Selenium locators.
+        // For example:
+        // assertTrue(driver.findElement(By.id("companyInfo")).isDisplayed());
+
+        // Add more assertions or validation as needed for your specific application.
+    }
+}
+
+
+----------------------------------------------------------------------------------
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.ContactUsPage;
+import pages.HomePage;
+
+public class ContactUsStepDefinitions {
+
+    private WebDriver driver;
+
+    @Given("User is on the home page")
+    public void user_is_on_the_home_page() {
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.xenonstack.com/");
+    }
+
+    @When("User navigates to the Contact Us page") {
+        HomePage.click_contact_us_button();
+    }
+
+    @Then("User should be on the Contact Us page") {
+        // Add assertions or validation for the Contact Us page as needed.
+        // For example, you can validate the page title:
+        String expectedPageTitle = "Contact Us - XenonStack"; // Replace with the expected title.
+        String actualPageTitle = driver.getTitle();
+
+        assertEquals("Page title doesn't match", expectedPageTitle, actualPageTitle);
+
+        // You can also check for specific elements on the Contact Us page using Selenium locators.
+        // For example:
+        // assertTrue(driver.findElement(By.id("contactForm")).isDisplayed());
+
+        // Add more assertions or validation as needed for your specific application.
+    }
+
+    @When("User navigates back to the home page") {
+        // Use Selenium to navigate the browser back
+        driver.navigate().back();
+    }
+
+    @Then("User should be on the home page") {
+        // Add assertions or validation for the home page after navigating back.
+        // For example, you can validate the home page title or a specific element.
+        // Go back to the home page URL:
+        driver.get("https://www.xenonstack.com/");
+
+        // Add assertions or validation as needed for your home page.
+    }
+}
+
+
+
+
+----------------------------------------------------------------------------------------------
+
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
+
+public class TransformNowStepDefinitions {
+
+    private WebDriver driver;
+
+    @Given("User is on the XenonStack website") {
+        // Set up the ChromeDriver and navigate to the home page
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.xenonstack.com/");
+    }
+
+    @When("User clicks on the \"Transform Now\" button") {
+        HomePage.click_transform_now_button();
+    }
+
+    @Then("User should be on the \"Transform Now\" page") {
+        // Add assertions or validation for the "Transform Now" page as needed.
+        String expectedPageTitle = "Transform Now - XenonStack"; // Replace with the expected title.
+        String actualPageTitle = driver.getTitle();
+
+        assertEquals("Page title doesn't match", expectedPageTitle, actualPageTitle);
+
+        // You can also check for specific elements on the "Transform Now" page using Selenium locators.
+        // For example:
+        // assertTrue(driver.findElement(By.id("transformationProcess")).isDisplayed());
+
+        // Add more assertions or validation as needed for your specific application.
+    }
+
+    @When("User navigates back to the home page") {
+        // Use Selenium to navigate the browser back
+        driver.navigate().back();
+    }
+
+    @Then("User should be on the home page") {
+        // Add assertions or validation for the home page after navigating back.
+        // For example, you can validate the home page title or a specific element.
+        // Go back to the home page URL:
+        driver.get("https://www.xenonstack.com/");
+
+        // Add assertions or validation as needed for your home page.
+    }
+}
+------------------------------------------------------------------------------------------
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
+
+public class TakeFirstStepStepDefinitions {
+
+    private WebDriver driver;
+
+    @Given("User is on the XenonStack website") {
+        // Set up the ChromeDriver and navigate to the home page
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.xenonstack.com/");
+    }
+
+    @When("User clicks on the \"Take the First Step\" button") {
+        HomePage.click_take_first_step_button();
+    }
+
+    @Then("User should be on the \"Take the First Step\" page") {
+        // Add assertions or validation for the "Take the First Step" page as needed.
+        String expectedPageTitle = "Take the First Step - XenonStack"; // Replace with the expected title.
+        String actualPageTitle = driver.getTitle();
+
+        assertEquals("Page title doesn't match", expectedPageTitle, actualPageTitle);
+
+        // You can also check for specific elements on the "Take the First Step" page using Selenium locators.
+        // For example:
+        // assertTrue(driver.findElement(By.id("firstStepForm")).isDisplayed());
+
+        // Add more assertions or validation as needed for your specific application.
+    }
+
+    @When("User navigates back to the home page") {
+        // Use Selenium to navigate the browser back
+        driver.navigate().back();
+    }
+
+    @Then("User should be on the home page") {
+        // Add assertions or validation for the home page after navigating back.
+        // For example, you can validate the home page title or a specific element.
+        // Go back to the home page URL:
+        driver.get("https://www.xenonstack.com/");
+
+        // Add assertions or validation as needed for your home page.
+    }
+}
+
+
+
+---------------------------------------------------------------------------------------------------
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
+
+public class TransformNowStepDefinitions {
+
+    private WebDriver driver;
+
+    @Given("User is on the XenonStack website") {
+        // Set up the ChromeDriver and navigate to the home page
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.xenonstack.com/");
+    }
+
+    @When("User clicks on the \"Transform Now\" button") {
+        HomePage.click_transform_now_button();
+    }
+
+    @Then("User should be on the \"Transform Now\" page") {
+        // Add assertions or validation for the "Transform Now" page as needed.
+        String expectedPageTitle = "Transform Now - XenonStack"; // Replace with the expected title.
+        String actualPageTitle = driver.getTitle();
+
+        assertEquals("Page title doesn't match", expectedPageTitle, actualPageTitle);
+
+        // You can also check for specific elements on the "Transform Now" page using Selenium locators.
+        // For example:
+        // assertTrue(driver.findElement(By.id("transformNowForm")).isDisplayed());
+
+        // Add more assertions or validation as needed for your specific application.
+    }
+
+    @When("User navigates back to the home page") {
+        // Use Selenium to navigate the browser back
+        driver.navigate().back();
+    }
+
+    @Then("User should be on the home page") {
+        // Add assertions or validation for the home page after navigating back.
+        // For example, you can validate the home page title or a specific element.
+        // Go back to the home page URL:
+        driver.get("https://www.xenonstack.com/");
+
+        // Add assertions or validation as needed for your home page.
+    }
+}
+
+
+
+----------------------------------------------------------------------------------------
+
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import pages.HomePage;
+
+public class HomeMoreStepDefinitions {
+
+    private WebDriver driver;
+
+    @Given("User is on the XenonStack website") {
+        // Set up the ChromeDriver and navigate to the home page
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.xenonstack.com/");
+    }
+
+    @When("User clicks on the Strategy button") {
+        // You need to implement the action for clicking on the Strategy button.
+        // This could be a button or link on your home page.
+        HomePage.click_strategy_button();
+    }
+
+    @Then("User should perform the expected action for the Strategy button") {
+        // Add assertions or validation for the expected action when the Strategy button is clicked.
+        // This could include checking if a specific element related to Strategy is displayed or navigating to a new page.
+        // Add more assertions as needed.
+    }
+
+    @When("User clicks on the Services button") {
+        // You need to implement the action for clicking on the Services button.
+        // This could be a button or link on your home page.
+        HomePage.click_services_button();
+    }
+
+    @Then("User should perform the expected action for the Services button") {
+        // Add assertions or validation for the expected action when the Services button is clicked.
+        // This could include checking if a specific element related to Services is displayed or navigating to a new page.
+        // Add more assertions as needed.
+    }
+
+    @When("User clicks on the Accelerators button") {
+        // You need to implement the action for clicking on the Accelerators button.
+        // This could be a button or link on your home page.
+        HomePage.click_accelerators_button();
+    }
+
+    @Then("User should perform the expected action for the Accelerators button") {
+        // Add assertions or validation for the expected action when the Accelerators button is clicked.
+        // This could include checking if a specific element related to Accelerators is displayed or navigating to a new page.
+        // Add more assertions as needed.
+    }
+
+    @When("User clicks on the DataOps button") {
+        // You need to implement the action for clicking on the DataOps button.
+        // This could be a button or link on your home page.
+        HomePage.click_dataops_button();
+    }
+
+    @Then("User should perform the expected action for the DataOps button") {
+        // Add assertions or validation for the expected action when the DataOps button is clicked.
+        // This could include checking if a specific element related to DataOps is displayed or navigating to a new page.
+        // Add more assertions as needed.
+    }
+
+    @When("User clicks on the Hybrid Cloud button") {
+        // You need to implement the action for clicking on the Hybrid Cloud button.
+        // This could be a button or link on your home page.
+        HomePage.click_hybrid_cloud_button();
+    }
+
+    @Then("User should perform the expected action for the Hybrid Cloud button") {
+        // Add assertions or validation for the expected action when the Hybrid Cloud button is clicked.
+        // This could include checking if a specific element related to Hybrid Cloud is displayed or navigating to a new page.
+        // Add more assertions as needed.
+    }
+
+    @When("User clicks on the Managed Services button") {
+        // You need to implement the action for clicking on the Managed Services button.
+        // This could be a button or link on your home page.
+        HomePage.click_managed_services_button();
+    }
+
+    @Then("User should perform the expected action for the Managed Services button") {
+        // Add assertions or validation for the expected action when the Managed Services button is clicked.
+        // This could include checking if a specific element related to Managed Services is displayed or navigating to a new page.
+        // Add more assertions as needed.
+    }
+
+}
+
+
