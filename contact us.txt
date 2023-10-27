@@ -1,0 +1,387 @@
+landing/home page - https://www.xenonstack.com/
+
+
+Feature: Contact Us Form
+
+
+
+  Background:
+    Given User is on the XenonStack homepage
+
+  Scenario: User fills out the Contact Us form
+    When User clicks on the "CONTACT US" button
+    Then User should be on the Contact Us page
+
+    And User fills out the Contact Us form with the following information:
+      | Field               | Value                          |
+      | First Name          | John                           |
+      | Last Name           | Doe                            |
+      | Business Email ID   | john.doe@example.com           |
+      | Company Name        | ABC Inc.                       |
+      | Phone Number        | +1 123-456-7890                |
+      | Job Function        | Product Manager(it is a drop down menu)                |
+      | Country             | United States(it is a drop down menu)                  |
+      | Industry Belongs To           | Technology  (it is a drop down menu)                   |
+    
+    And User clicks on the "NEXT" button
+
+    And User selects the following options:
+
+https://www.xenonstack.com/contact-us/
+
+
+      | What stage are you in?    (it is drop down menu)              |
+      | Any Cloud services Presently Using? (it is drop down menu)     |
+      | Are you using any Cloud Data Platform? (it is drop down menu)   |
+      | Which Data Visualization Tool are you using? (it is drop down menu)  |
+      | Business UseCase (it is drop down menu)   |
+    
+    And User provides specific requirements in the comment box
+      """
+      We are interested in your AI services for data analysis.
+      """
+    
+    And User checks the "Yes, I'd like XenonStack to share the latest Insights and services updates via email" checkbox
+    
+    And User enters the Captcha Text (implement this also important)
+    
+    When User clicks the "SUBMIT" button
+    Then User should see a confirmation message
+
+  Scenario: User returns to the homepage
+    When User wants to return to the homepage
+    Then User should be on the XenonStack homepage
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------
+
+
+
+Feature: Contact Us Form
+
+  Scenario: User fills out the Contact Us form
+    Given User is on the XenonStack homepage
+    When User clicks on the "CONTACT US" button
+    Then User should be on the Contact Us page
+    And User fills out the Contact Us form
+    And User clicks on the "NEXT" button
+    And User selects the following options
+    And User provides specific requirements in the comment box
+    And User checks the "Yes, I'd like XenonStack to share the latest Insights and services updates via email" checkbox
+    And User enters the Captcha Text
+    When User clicks the "SUBMIT" button
+
+  Scenario: User returns to the homepage
+    When User wants to return to the homepage
+    Then User should be on the XenonStack homepage
+
+
+
+--------------------------------------------------------------------------------------------------
+
+
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import utility.BrowserDriver;
+
+public class ContactUsPage extends BrowserDriver {
+    // Web elements locators
+    private static final By firstNameInput = By.id("firstname");
+    private static final By lastNameInput = By.id("lastname");
+    private static final By emailInput = By.id("email");
+    private static final By companyNameInput = By.id("companyName");
+    private static final By phoneNumberInput = By.id("phone");
+    private static final By jobFunctionDropdown = By.id("jobFunction");
+    private static final By countryDropdown = By.id("country");
+    private static final By industryDropdown = By.id("industry");
+    private static final By nextButton = By.id("next-1");
+    private static final By stageDropdown = By.id("whatStage");
+    private static final By cloudServicesDropdown = By.id("cloudService");
+    private static final By cloudDataPlatformDropdown = By.id("cloudPlatform");
+    private static final By dataVisualizationToolDropdown = By.id("dataTool");
+    private static final By businessUseCaseDropdown = By.id("businessUsecase");
+    private static final By commentsTextArea = By.id("message");
+    private static final By subscribeCheckbox = By.xpath("//input[@type='checkbox' and @name='subscribe']");
+    private static final By captchaText = By.id("captcha");
+    private static final By submitButton = By.xpath("//input[@type='submit' and @value='SUBMIT']");
+    
+    // Methods to interact with the page elements
+    public static void enterFirstName(String firstName) {
+        driver.findElement(firstNameInput).sendKeys(firstName);
+    }
+
+    public static void enterLastName(String lastName) {
+        driver.findElement(lastNameInput).sendKeys(lastName);
+    }
+
+    public static void enterEmail(String email) {
+        driver.findElement(emailInput).sendKeys(email);
+    }
+
+    public static void enterCompanyName(String company) {
+        driver.findElement(companyNameInput).sendKeys(company);
+    }
+
+    public static void enterPhoneNumber(String phone) {
+        driver.findElement(phoneNumberInput).sendKeys(phone);
+    }
+
+    public static void selectJobFunction(String jobFunction) {
+        Select jobFunctionDropdownSelect = new Select(driver.findElement(jobFunctionDropdown));
+        jobFunctionDropdownSelect.selectByVisibleText(jobFunction);
+    }
+
+    public static void selectCountry(String country) {
+        Select countryDropdownSelect = new Select(driver.findElement(countryDropdown));
+        countryDropdownSelect.selectByVisibleText(country);
+    }
+
+    public static void selectIndustry(String industry) {
+        Select industryDropdownSelect = new Select(driver.findElement(industryDropdown));
+        industryDropdownSelect.selectByVisibleText(industry);
+    }
+
+    public static void clickNextButton() {
+        driver.findElement(nextButton).click();
+    }
+
+    public static void selectStage(String stage) {
+        Select stageDropdownSelect = new Select(driver.findElement(stageDropdown));
+        stageDropdownSelect.selectByVisibleText(stage);
+    }
+
+    public static void selectCloudServices(String cloudServices) {
+        Select cloudServicesDropdownSelect = new Select(driver.findElement(cloudServicesDropdown));
+        cloudServicesDropdownSelect.selectByVisibleText(cloudServices);
+    }
+
+    public static void selectCloudDataPlatform(String cloudDataPlatform) {
+        Select cloudDataPlatformDropdownSelect = new Select(driver.findElement(cloudDataPlatformDropdown));
+        cloudDataPlatformDropdownSelect.selectByVisibleText(cloudDataPlatform);
+    }
+
+    public static void selectDataVisualizationTool(String visualizationTool) {
+        Select dataVisualizationToolDropdownSelect = new Select(driver.findElement(dataVisualizationToolDropdown));
+        dataVisualizationToolDropdownSelect.selectByVisibleText(visualizationTool);
+    }
+
+    public static void selectBusinessUseCase(String useCase) {
+        Select businessUseCaseDropdownSelect = new Select(driver.findElement(businessUseCaseDropdown));
+        businessUseCaseDropdownSelect.selectByVisibleText(useCase);
+    }
+
+    public static void enterComments(String comments) {
+        driver.findElement(commentsTextArea).sendKeys(comments);
+    }
+
+    public static void checkSubscribe() {
+        WebElement subscribeCheckBox = driver.findElement(subscribeCheckbox);
+        if (!subscribeCheckBox.isSelected()) {
+            subscribeCheckBox.click();
+        }
+    }
+
+    public static void enterCaptchaText(String captcha) {
+        driver.findElement(captchaText).sendKeys(captcha);
+    }
+
+    public static void clickSubmitButton() {
+        driver.findElement(submitButton).click();
+    }
+}
+
+
+
+---------------------------------------------------------------------------------------------
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import pages.ContactUsPage;
+
+public class ContactUsStepDefinitions {
+
+    @Given("User is on the XenonStack homepage")
+    public void user_is_on_the_xenonstack_homepage() {
+        // Navigate to the XenonStack homepage, if not already on it.
+    }
+
+    @When("User clicks on the \"CONTACT US\" button")
+    public void user_clicks_on_the_contact_us_button() {
+        ContactUsPage.clickContactUsButton();
+    }
+
+    @Then("User should be on the Contact Us page")
+    public void user_should_be_on_the_contact_us_page() {
+        // Add assertions or validation for the Contact Us page.
+    }
+
+    @When("User fills out the Contact Us form")
+    public void user_fills_out_the_contact_us_form() {
+        ContactUsPage.enterFirstName("John");
+        ContactUsPage.enterLastName("Doe");
+        ContactUsPage.enterEmail("john.doe@example.com");
+        ContactUsPage.enterCompanyName("ABC Inc.");
+        ContactUsPage.enterPhoneNumber("+1 123-456-7890");
+        ContactUsPage.selectJobFunction("Product Manager");
+        ContactUsPage.selectCountry("United States");
+        ContactUsPage.selectIndustry("Technology");
+    }
+
+    @When("User clicks on the \"NEXT\" button")
+    public void user_clicks_on_the_next_button() {
+        ContactUsPage.clickNextButton();
+    }
+
+    @When("User selects the following options")
+    public void user_selects_the_following_options(io.cucumber.datatable.DataTable dataTable) {
+        // Extract and set the options from the data table
+        List<Map<String, String>> options = dataTable.asMaps();
+
+        ContactUsPage.selectStage(options.get(0).get("What stage are you in?"));
+        ContactUsPage.selectCloudServices(options.get(1).get("Any Cloud services Presently Using?"));
+        ContactUsPage.selectCloudDataPlatform(options.get(2).get("Are you using any Cloud Data Platform?"));
+        ContactUsPage.selectDataVisualizationTool(options.get(3).get("Which Data Visualization Tool are you using?"));
+        ContactUsPage.selectBusinessUseCase(options.get(4).get("Business UseCase"));
+    }
+
+    @When("User provides specific requirements in the comment box")
+    public void user_provides_specific_requirements_in_the_comment_box(String comments) {
+        ContactUsPage.enterComments(comments);
+    }
+
+    @When("User checks the \"Yes, I'd like XenonStack to share the latest Insights and services updates via email\" checkbox")
+    public void user_checks_the_yes_i_d_like_xenonstack_to_share_the_latest_insights_and_services_updates_via_email_checkbox() {
+        ContactUsPage.checkSubscribe();
+    }
+
+    @When("User enters the Captcha Text")
+    public void user_enters_the_captcha_text(String captcha) {
+        ContactUsPage.enterCaptchaText(captcha);
+    }
+
+    @When("User clicks the \"SUBMIT\" button")
+    public void user_clicks_the_submit_button() {
+        ContactUsPage.clickSubmitButton();
+    }
+
+    @When("User wants to return to the homepage")
+    public void user_wants_to_return_to_the_homepage() {
+        // Implement navigation to the homepage or simply use the browser's back button.
+    }
+
+    @Then("User should be on the XenonStack homepage")
+    public void user_should_be_on_the_xenonstack_homepage() {
+        // Add assertions or validation for returning to the homepage.
+    }
+}
+
+
+
+
+------------------------------------------------------------------------------------------
+
+
+package stepDefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import io.cucumber.java.en.Then;
+import pages.ContactUsPage;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class ContactUsStepDefinitions {
+
+    private WebDriver driver;
+
+    @Given("User is on the XenonStack homepage")
+    public void user_is_on_the_xenonstack_homepage() {
+        System.setProperty("webdriver.chrome.driver", "path_to_chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.xenonstack.com/");
+    }
+
+    @When("User clicks on the \"CONTACT US\" button")
+    public void user_clicks_on_the_contact_us_button() {
+        ContactUsPage.clickContactUsButton(driver);
+    }
+
+    @Then("User should be on the Contact Us page")
+    public void user_should_be_on_the_contact_us_page() {
+        // Add assertions or validation for the Contact Us page.
+        // For example, check the page title or a specific element.
+    }
+
+    @When("User fills out the Contact Us form")
+    public void user_fills_out_the_contact_us_form() {
+        ContactUsPage.enterContactUsFormDetails(driver, "John", "Doe", "john.doe@example.com", "ABC Inc.",
+                "+1 123-456-7890", "Product Manager", "United States", "Technology");
+    }
+
+    @When("User clicks on the \"NEXT\" button")
+    public void user_clicks_on_the_next_button() {
+        ContactUsPage.clickNextButton(driver);
+    }
+
+    @When("User selects the following options")
+    public void user_selects_the_following_options(io.cucumber.datatable.DataTable dataTable) {
+        // Extract and set the options from the data table
+        List<Map<String, String>> options = dataTable.asMaps();
+
+        ContactUsPage.selectOptions(driver,
+            options.get(0).get("What stage are you in?"),
+            options.get(1).get("Any Cloud services Presently Using?"),
+            options.get(2).get("Are you using any Cloud Data Platform?"),
+            options.get(3).get("Which Data Visualization Tool are you using?"),
+            options.get(4).get("Business UseCase"));
+    }
+
+    @When("User provides specific requirements in the comment box")
+    public void user_provides_specific_requirements_in_the_comment_box(String comments) {
+        ContactUsPage.enterComments(driver, comments);
+    }
+
+    @When("User checks the \"Yes, I'd like XenonStack to share the latest Insights and services updates via email\" checkbox")
+    public void user_checks_the_yes_i_d_like_xenonstack_to_share_the_latest_insights_and_services_updates_via_email_checkbox() {
+        ContactUsPage.checkSubscribeCheckbox(driver);
+    }
+
+    @When("User enters the Captcha Text")
+    public void user_enters_the_captcha_text() {
+        // Implement CAPTCHA handling using OCR or other methods as discussed earlier.
+    }
+
+    @When("User clicks the \"SUBMIT\" button")
+    public void user_clicks_the_submit_button() {
+        ContactUsPage.clickSubmitButton(driver);
+    }
+
+    @When("User wants to return to the homepage")
+    public void user_wants_to_return_to_the_homepage() {
+        // Implement navigation to the homepage or simply use the browser's back button.
+    }
+
+    @Then("User should be on the XenonStack homepage")
+    public void user_should_be_on_the_xenonstack_homepage() {
+        // Add assertions or validation for returning to the homepage.
+    }
+
+    @After
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+}
